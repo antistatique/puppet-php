@@ -4,7 +4,7 @@ class php {
 
   case $operatingsystem {
 
-    Debian: {
+    /Debian|Ubuntu/: {
       $phpini = "/etc/php5/cli/php.ini"
       $phpinidir = "/etc/php5/conf.d/"
 
@@ -24,7 +24,7 @@ class php {
 class php::apache inherits php {
 
   case $operatingsystem {
-    Debian: { include php::apache::debian }
+    /Debian|Ubuntu/: { include php::apache::debian }
     RedHat: { include php::apache::redhat }
   }
 
